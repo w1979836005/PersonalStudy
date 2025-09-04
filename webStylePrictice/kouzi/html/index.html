@@ -12,6 +12,12 @@
             box-sizing: border-box;
         }
 
+        ul li {
+            list-style: none;
+        }
+
+
+
         #homePage {
             width: 100%;
             height: 100vh;
@@ -28,13 +34,89 @@
             align-items: center;
         }
 
+        .left-item {
+            width: 100%;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
         .right {
             flex-grow: 1;
         }
 
         .font-icon {
-            margin-top: 2rem;
+            vertical-align: middle;
+            cursor: pointer;
+        }
 
+        .clock {
+            border-radius: 6px;
+            padding: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .clock:hover {
+            background-color: #E2E4EF;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            width: 100px;
+            left: -35px;
+            padding: 5px;
+            margin-top: 0.25rem;
+            border-radius: 8px;
+            background-color: #3A3C49;
+        }
+
+        ul li a {
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            color: #D0D3DF;
+            font-size: 12px;
+        }
+
+        .custom-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .custom-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+
+        .task-button {
+            width: 90%;
+            height: 38px;
+            background-color: #E8EAFD;
+            border: 1.5px solid #DADDF2;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .task-button:hover {
+            background-color: #D6DAFD;
+        }
+
+        .small-font {
+            display: inline-block;
+            text-align: center;
+            height: 20px;
+            width: 18px;
+            font-size: 8px;
+            color: #9C9BFE;
+            border-radius: 5px;
+            vertical-align: middle;
+            margin-left: 2px;
+            padding: 2px;
+            background-color: #D2D6FD;
+            border: 1px solid #E2E5FA;
         }
     </style>
 </head>
@@ -64,16 +146,29 @@
                         d="M383.223 24.6945C383.623 24.0445 383.823 23.3145 383.823 22.5145 383.823 21.5045 383.513 20.6245 382.893 19.8945 382.623 19.5745 382.283 19.2845 381.893 19.0345L381.733 18.9345 381.883 18.8245C382.103 18.6545 382.303 18.4645 382.483 18.2645 383.013 17.6345 383.273 16.8845 383.273 16.0145 383.273 15.3145 383.093 14.6545 382.743 14.0645 382.393 13.4645 381.873 12.9845 381.203 12.6145 380.533 12.2545 379.703 12.0645 378.733 12.0645H372.703V26.8445H378.813C379.853 26.8445 380.753 26.6445 381.493 26.2545 382.243 25.8645 382.823 25.3345 383.213 24.6845H383.223V24.6945zM375.873 14.7445H378.383C378.893 14.7445 379.303 14.8745 379.613 15.1245 379.913 15.3745 380.063 15.7445 380.063 16.2745 380.063 16.8045 379.923 17.1545 379.623 17.4045 379.323 17.6545 378.903 17.7845 378.363 17.7845H375.873V14.7445zM380.103 23.6145C379.763 23.9845 379.303 24.1645 378.713 24.1645H375.873V20.4445H378.673C379.083 20.4445 379.443 20.5345 379.733 20.7045 380.033 20.8745 380.243 21.0945 380.393 21.3745 380.543 21.6545 380.613 21.9645 380.613 22.3145 380.613 22.8245 380.443 23.2545 380.103 23.6245V23.6145zM389.463 20.7145H395.973V17.9145H389.463V14.9245H396.573V12.0645H386.273V26.8445H396.673V23.9845H389.463V20.7145zM398.984 14.9445H403.554V26.8445H406.764V14.9445H411.344V12.0645H398.984V14.9445zM421.053 24.1645L422.063 26.8445H425.473L419.563 12.0645H416.993L411.023 26.8445H414.413L415.433 24.1645H421.053zM418.253 16.7845L420.013 21.4245H416.483L418.253 16.7845z"
                         fill="#4C53F0"></path>
                 </svg>
-                <svg class="font-icon font-icon-coz_alarm !w-[18px] !h-[18px]" width="1em" height="1em"
-                    viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M8.98242 2.88086C12.743 2.88121 15.7909 5.92983 15.791 9.69043 15.791 11.3006 15.2302 12.7787 14.2959 13.9443L15.5713 15.2197C15.8642 15.5126 15.8642 15.9874 15.5713 16.2803 15.2784 16.5732 14.8036 16.5732 14.5107 16.2803L13.2354 15.0049C12.0698 15.9389 10.5923 16.4998 8.98242 16.5 7.37184 16.5 5.89251 15.9396 4.72656 15.0049L3.45215 16.2803C3.15928 16.5731 2.6845 16.5731 2.3916 16.2803 2.09871 15.9874 2.09871 15.5126 2.3916 15.2197L3.66602 13.9443C2.73199 12.7788 2.17194 11.3002 2.17188 9.69043 2.17202 5.92961 5.22157 2.88086 8.98242 2.88086zM8.98242 4.38086C6.05 4.38086 3.67202 6.75804 3.67188 9.69043 3.67202 12.6228 6.05 15 8.98242 15 11.9145 14.9996 14.2909 12.6226 14.291 9.69043 14.2909 6.75826 11.9145 4.38121 8.98242 4.38086zM8.98828 5.83105C9.40244 5.83112 9.73828 6.16688 9.73828 6.58105V9.4668L11.1162 10.8447C11.4091 11.1376 11.4091 11.6134 11.1162 11.9062 10.8233 12.1986 10.3484 12.1988 10.0557 11.9062L8.55469 10.4043C8.35215 10.2018 8.23828 9.92706 8.23828 9.64062V6.58105C8.23828 6.16684 8.57407 5.83105 8.98828 5.83105zM4.36127 2C4.89525 2 5.38778 2.17733 5.78334 2.47619 4.34061 3.1168 3.1257 4.17742 2.29391 5.50288 2.10668 5.16453 2 4.77543 2 4.36136 2 3.05724 3.05715 2.00001 4.36127 2zM13.6389 2C13.1049 2 12.6124 2.17733 12.2168 2.47619 13.6595 3.1168 14.8744 4.17742 15.7062 5.50288 15.8935 5.16453 16.0001 4.77543 16.0001 4.36136 16.0001 3.05724 14.943 2.00001 13.6389 2z"
-                        fill-opacity="1"></path>
-                </svg>
+                <div class="custom-dropdown">
+                    <img src="../img/闹钟.png" alt="闹钟" width="32" class="clock" style="vertical-align: middle;">
+                    <ul class="dropdown-menu" role="menu" aria-hidden="true">
+                        <li role="none"><a href="#" role="menuitem" tabindex="-1">定时任务管理</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="left-item">
+                <button class="task-button">
+                    <span style="color: #5147FF;font-size: 15px;">+ 新任务</span>
+                    <span class="small-font">ctrl</span>
+                    <span class="small-font">k</span>
+                </button>
             </div>
         </div>
         <div class="right"></div>
     </div>
+
+
+    <script>
+
+    </script>
 </body>
 
 </html>
